@@ -8,6 +8,7 @@ URLS_TO_DOWNLOAD = [
     ('cassic2019',  False, 'https://www.youtube.com/playlist?list=PLK4LVBiADYBneFSVyHrFBRFXyK236tGX9', '/mnt/d/Music/2019/classic2019'),
     ('music2019-3', False, 'https://www.youtube.com/playlist?list=PLK4LVBiADYBnw7IWXiFCdjRYVz5Zz83rz', '/mnt/d/Music/2019/music2019-3'),
     ('MV2019',      True , 'https://www.youtube.com/playlist?list=PLK4LVBiADYBmnz8MIy9ppxFZytodB9YTT', '/mnt/d/Music/2019/MV2019'),
+    ('Later',       True , 'https://www.youtube.com/playlist?list=PLK4LVBiADYBk_ARjq6DaGvckitGussMRi', '/mnt/e/Video/Youtube_e'),
 ]
 
 DATA_FILE = './data.json'
@@ -16,12 +17,12 @@ ydl_path = None
 
 def download_video(youtube_id, path):
     subprocess.Popen(
-        '%s -icw --add-metadata -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" "https://youtu.be/%s"'%(ydl_path, youtube_id), 
+        '%s -icw --add-metadata -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" --ffmpeg-location /usr/local/bin/ffmpeg "https://youtu.be/%s"'%(ydl_path, youtube_id), 
         shell=True, cwd=path, stdout=subprocess.PIPE).stdout.read()
 
 def download_music(youtube_id, path):
     subprocess.Popen(
-        '%s -icw --add-metadata --extract-audio --audio-format mp3 --embed-thumbnail "https://youtu.be/%s"'%(ydl_path, youtube_id), 
+        '%s -icw --add-metadata --extract-audio --audio-format mp3 --embed-thumbnail --ffmpeg-location /usr/local/bin/ffmpeg "https://youtu.be/%s"'%(ydl_path, youtube_id), 
         shell=True, cwd=path, stdout=subprocess.PIPE).stdout.read()
 
 def download_playlist(data, name, is_video, playlist, path):
