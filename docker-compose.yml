@@ -1,0 +1,9 @@
+version: '3'
+
+services: 
+    ydl:
+        image: kitsunetic/ydl:v1
+        restart: always
+        volumes: 
+            - /mnt/d/Music/2020:/download
+            - /etc/ydl:/etc/ydl
