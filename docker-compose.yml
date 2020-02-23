@@ -1,9 +1,10 @@
 version: '3'
 
 services: 
-    ydl:
-        image: kitsunetic/ydl:v1
-        restart: always
-        volumes: 
-            - /mnt/d/Music/2020:/download
-            - /etc/ydl:/etc/ydl
+  ydl:
+    image: ydl-sync
+    container_name: ydl-sync
+    restart: always
+    volumes: 
+      - /mnt/sdb/resilio/ydl-sync:/download
+      - /etc/ydl-sync:/etc/ydl-sync
