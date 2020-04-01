@@ -4,7 +4,7 @@ services:
   ydl:
     image: ydl-sync
     container_name: ydl-sync
-    restart: always
+    restart: unless-stopped
     volumes: 
-      - /mnt/sdb/resilio/ydl-sync:/download
-      - /etc/ydl-sync:/etc/ydl-sync
+      - /resilio/sync/ydl/music2020:/download
+      - /home/kitusne/docker/ydl/config:/etc/ydl-sync
