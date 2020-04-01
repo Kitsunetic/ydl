@@ -1,6 +1,6 @@
 Sync for youtube playlist
 
-# How to use
+# Build
 
 ```bash
 git clone https://github.com/Kitsunetic/ydl.git
