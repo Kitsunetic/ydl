@@ -6,5 +6,5 @@ services:
     container_name: ydl-sync
     restart: unless-stopped
     volumes: 
-      - /resilio/sync/ydl/music2020:/download
-      - /home/kitusne/docker/ydl/config:/etc/ydl-sync
+      - /resilio/sync/ydl:/download
+      - /home/kitsune/docker/ydl/config:/etc/ydl
