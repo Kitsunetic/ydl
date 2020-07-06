@@ -12,12 +12,14 @@ ydl_path = None
 
 def download_video(youtube_id, path):
     subprocess.Popen(
-        'youtube-dl -icw --add-metadata -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" -o "%(title)s.%(ext)s" https://youtu.be/{}'.format(youtube_id), 
+        #'youtube-dl -icw --add-metadata -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" -o "%(title)s.%(ext)s" https://youtu.be/{}'.format(youtube_id), 
+        'youtube-dl -icw --add-metadata -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" https://youtu.be/{}'.format(youtube_id), 
         shell=True, cwd=path, stdout=subprocess.PIPE).stdout.read()
 
 def download_music(youtube_id, path):
     subprocess.Popen(
-        'youtube-dl -icw --add-metadata --extract-audio --audio-format mp3 --embed-thumbnail -o "%(title)s.%(ext)s" https://youtu.be/{}'.format(youtube_id),
+        #'youtube-dl -icw --add-metadata --extract-audio --audio-format mp3 --embed-thumbnail -o "%(title)s.%(ext)s" https://youtu.be/{}'.format(youtube_id),
+        'youtube-dl -icw --add-metadata --extract-audio --audio-format mp3 --embed-thumbnail https://youtu.be/{}'.format(youtube_id),
         shell=True, cwd=path, stdout=subprocess.PIPE).stdout.read()
 
 def download_playlist(data, name, is_video, playlist, path):
