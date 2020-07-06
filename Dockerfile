@@ -13,11 +13,12 @@ RUN apt-get clean
 
 #RUN pip3 --no-cache-dir install --upgrade pip
 #RUN pip3 --no-cache-dir install youtube-dl
-RUN git clone https://github.com/ytdl-org/youtube-dl /youtube-dl
-WORKDIR /youtube-dl
-RUN python setup.py install
-WORKDIR /
-RUN rm -r /youtube-dl
+#RUN git clone https://github.com/ytdl-org/youtube-dl /youtube-dl
+#WORKDIR /youtube-dl
+#RUN python setup.py install
+#WORKDIR /
+#RUN rm -r /youtube-dl
+RUN pip3 install Pillow
 
 RUN mkdir /app
 COPY ./run.sh           /app
